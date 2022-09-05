@@ -42,3 +42,10 @@ class: lead
  As the Internet of Things (IoT) expands to household appliances such as smart refrigerators or security cameras, the list of possible clients expands.
 
  ## `Server`
+A server is a computer program or device that provides services using a request and response cycle to another device, which is known as the client. Servers are often housed within large data centers, but they can also be kept on-site and even on the same machine as the client.
+
+The primary objective of any server is to wait and listen for incoming requests and then to respond with the appropriate data, much like the staff from our restaurant analogy!
+
+## `Concurrently`
+Concurrently is a term that refers to the fact that a server can respond to multiple requests at the same time.
+the tool `Concurrently` will allow us to execute and run multiple commands simultaneously.

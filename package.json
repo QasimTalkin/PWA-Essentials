@@ -1,0 +1,25 @@
+{
+  "name": "pwa-essentials",
+  "version": "1.0.0",
+  "description": "--- marp: true theme: gaia style: |   section.lead h1 {   text-align: center;   }   section.middle li{   text-align: center;   } --- <!-- headingDivider: 2 --> <!-- theme: gaia class: lead -->",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
+    "start": "cd server && node server.js",
+    "server": "cd server nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QasimTalkin/PWA-Essentials.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QasimTalkin/PWA-Essentials/issues"
+  },
+  "homepage": "https://github.com/QasimTalkin/PWA-Essentials#readme"
+}
