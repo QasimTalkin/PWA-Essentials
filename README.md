@@ -87,3 +87,65 @@ module.exports = {
   ]
 };
 ```
+
+# Images and CSS Assets in webpack
+* Images and CSS assets are often stored in the `public` directory.
+* We can bundle these assets into our bundle.js file using the `file-loader` and `url-loader` loaders.
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const config = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    })
+  ]
+};
+```
+## the HtmlWebpackPlugin
+* The HtmlWebpackPlugin is a plugin that allows us to use a template file to generate an HTML file for us. 
+`npm install --save-dev html-webpack-plugin`
+`const HtmlWebpackPlugin = require('html-webpack-plugin');`
+
+* To use the plugin we much create an instance of the plugin and pass it an object with the following properties:
+```js
+new HtmlWebpackPlugin({
+  template: './src/index.html'
+});
+```

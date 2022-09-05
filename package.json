@@ -2,7 +2,7 @@
   "name": "pwa-essentials",
   "version": "1.0.0",
   "description": "--- marp: true theme: gaia style: |   section.lead h1 {   text-align: center;   }   section.middle li{   text-align: center;   } --- <!-- headingDivider: 2 --> <!-- theme: gaia class: lead -->",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/QasimTalkin/PWA-Essentials/issues"
   },
-  "homepage": "https://github.com/QasimTalkin/PWA-Essentials#readme"
+  "homepage": "https://github.com/QasimTalkin/PWA-Essentials#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
 }
