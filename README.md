@@ -49,3 +49,41 @@ The primary objective of any server is to wait and listen for incoming requests 
 ## `Concurrently`
 Concurrently is a term that refers to the fact that a server can respond to multiple requests at the same time.
 the tool `Concurrently` will allow us to execute and run multiple commands simultaneously.
+
+## `Webpack`
+Webpack is a module bundler for modern JavaScript applications.
+Webpack is both flexible and configurable, and relies on five core concepts: entry, output, mode, plugins, and loaders.
+* `entry` is the starting point for the bundle. It can be a single file or an array of files. 
+* `output` is where the bundle is stored. It can be a directory or a file.
+* `mode` is a flag that tells Webpack to use its built-in optimizations for either development or production builds.
+* `plugins` are a collection of plugins that Webpack can use to transform modules.
+* `loaders` are a collection of loaders that Webpack can use to transform modules.
+* `module` is a flag that tells Webpack to use its built-in module system.
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+ 
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ]
+};
+```
