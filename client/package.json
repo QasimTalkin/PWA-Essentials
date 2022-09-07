@@ -30,7 +30,8 @@
     "@popperjs/core": "^2.11.6",
     "babel-loader": "^8.2.5",
     "babel-polyfill": "^6.26.0",
-    "bootstrap": "^5.2.0"
+    "bootstrap": "^5.2.0",
+    "idb": "^7.0.2"
   },
   "engines": {
     "node": "18.8.0"

@@ -149,3 +149,33 @@ new HtmlWebpackPlugin({
   template: './src/index.html'
 });
 ```
+
+# IndexedDB API
+* IndexedDB is a database that stores data locally on the user's device.
+* `IndexedDB API` is a transactional, client-side storage API that can store significant amounts of structured data. In other words, it allows access to a database in the browser that developers can leverage. 
+* During times of slow or non-existent connectivity, the end user can interact directly with an IndexedDB database and when the end user is able to gain internet connectivity once again, the data from the IndexedDB database can be synced with the traditional database. And this would all take place with minimal disruption to the end user.
+* we will be using a package called `idb` which is a relatively small library that enables us to develop modular and maintainable code whenever we want to create or access IndexedDB databases.
+
+## creating an IndexedDB database
+* `idb` is a relatively small library that enables us to develop modular and maintainable code whenever we want to create or access IndexedDB databases.
+* * first we need to import the `idb` package, this will give access to the IndexedDB API.
+* then we need to create a variable called `dbPromise` and assign it to the `idb.open` method.
+* `ibd.open` takes three arguments: the name of the database, the version of the database, and a callback function.
+* we check if the database already exists and if it does not, we create it.
+* within the callback function we need to create an object store called `restaurants` and assign it to the `db.createObjectStore` method.
+
+
+## `idb` code snippet
+```js
+import idb from 'idb';
+
+export const dbPromise = idb.open('restaurant-reviews', 1, db => {
+  if (!db.objectStoreNames.contains('restaurants')) {
+    db.createObjectStore('restaurants', { keyPath: 'id' });
+  }
+  if (!db.objectStoreNames.contains('reviews')) {
+    db.createObjectStore('reviews', { keyPath: 'id' });
+  }
+});
+```
+## 
