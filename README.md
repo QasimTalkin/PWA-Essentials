@@ -178,4 +178,43 @@ export const dbPromise = idb.open('restaurant-reviews', 1, db => {
   }
 });
 ```
-## 
+## Adding CRUD functionality to IndexedDB
+* We need to add CRUD functionality to our IndexedDB database.
+* we will perform CRUD operations on the `restaurants` object store.
+```js
+// reading from the database
+dbPromise.then(db => {
+  const tx = db.transaction('restaurants');
+  const store = tx.objectStore('restaurants');
+  return store.getAll();
+});
+
+// writing to the database
+dbPromise.then(db => {
+  const tx = db.transaction('restaurants', 'readwrite');
+  const store = tx.objectStore('restaurants');
+  store.put(restaurant);
+  return tx.complete;
+});
+// deleting from the database
+dbPromise.then(db => {
+  const tx = db.transaction('restaurants', 'readwrite');
+  const store = tx.objectStore('restaurants');
+  store.delete(restaurant.id);
+  return tx.complete;
+});
+```
+
+## service worker
+* `service worker` is a web application that runs in the background of the browser and is responsible for caching resources and updating them when necessary.
+* The stages of the service worker lifecycle include the following:
+
+    * Installing: The beginning of registration where resources are being set up.
+
+    * Installed: Setup is finished and the service worker is waiting for other service workers to be closed.
+
+    * Activating: No other service workers are running and the set up is finishing.
+
+    * Activated: Service worker handles functional events.
+
+    * Redundant: Service worker is obsolete.
